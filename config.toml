@@ -1,0 +1,31 @@
+# title = "Media Player"
+# session_id = "00000000-1111-2222-3333-444444444444"
+# port = 8080
+
+# Start mpv like this to open the control socket. Otherwise, the command won't
+# work.
+# mpv --input-ipc-server=~~/socket
+
+[[action]]
+display_name = "<<10"
+cmd = "echo seek -10 exact | socat - ~/.config/mpv/socket"
+
+[[action]]
+display_name = "Play/Pause"
+cmd = "echo cycle pause | socat - ~/.config/mpv/socket"
+
+[[action]]
+display_name = "10>>"
+cmd = "echo seek 10 exact | socat - ~/.config/mpv/socket"
+
+[[action]]
+display_name = "<|"
+cmd = "echo playlist-prev | socat - ~/.config/mpv/socket"
+
+[[action]]
+display_name = "Stop"
+cmd = "echo stop | socat - ~/.config/mpv/socket"
+
+[[action]]
+display_name = "|>"
+cmd = "echo playlist-next | socat - ~/.config/mpv/socket"
